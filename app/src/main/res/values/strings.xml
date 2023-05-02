@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Auto assistant</string>
+    <string name="start_app">Вперёд!</string>
+    <string name="content_desc">Логотип приложения</string>
+    <string name="hint_edtname">Как мне к вам обращаться?</string>
+    <string name="toast_name">Заполните, пожалуйста, поле</string>
+    <string name="hint_edtmass">Масса авто (кг)</string>
+    <string name="hint_edtrad">Радиус колеса (м)</string>
+    <string name="input_data">Введите данные, необходимые для работы приложения</string>
+    <string name="forward">Далее</string>
+    <string name="toast_forward">Оба поля должны быть заполнены</string>
+    <string name="description_of_app">Приветствую, %s, в приложении Auto assistant. Приложение создано для предоставления водителю различной информации о движении и положении ТС. Информация, предоставляемая приложением носит чисто информативный характер и не претендует на точность физических приборов. Пользуйтесь и получайте удовольствие и не забудьте пристегнуть ремни безопасности.</string>
+    <string name="roll">Крен</string>
+    <string name="speed">Скоростные показатели</string>
+    <string name="force">Силовые показатели</string>
+    <string name="other">Другие показатели</string>
+    <string name="hint_roll">Угол крена:</string>
+    <string name="hint_rise">Угол подъёма:</string>
+    <string name="desc_back">Проградуированные дуги</string>
+    <string name="desc_car_front">Машина в лобовой проекции</string>
+    <string name="desc_car_side">Машина в боковой проекции</string>
+    <string name="btn_back">Кнопка назад</string>
+    <string name="btn_start">Кнопка начала измерений</string>
+    <string name="tv_reminder">Закрепите телефон неподвижно!</string>
+</resources>
