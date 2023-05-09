@@ -9,7 +9,7 @@
     <string name="input_data">Введите данные, необходимые для работы приложения</string>
     <string name="forward">Далее</string>
     <string name="toast_forward">Оба поля должны быть заполнены</string>
-    <string name="description_of_app">Приветствую, %s, в приложении Auto assistant. Приложение создано для предоставления водителю различной информации о движении и положении ТС. Информация, предоставляемая приложением носит чисто информативный характер и не претендует на точность физических приборов. Пользуйтесь и получайте удовольствие и не забудьте пристегнуть ремни безопасности.</string>
+    <string name="description_of_app">Приветствую в приложении Auto assistant. Приложение создано для предоставления водителю различной информации о движении и положении ТС. Информация, предоставляемая приложением носит чисто информативный характер и не претендует на точность физических приборов. Пользуйтесь и получайте удовольствие и не забудьте пристегнуть ремни безопасности.</string>
     <string name="roll">Крен</string>
     <string name="speed">Скоростные показатели</string>
     <string name="force">Силовые показатели</string>
@@ -21,5 +21,16 @@
     <string name="desc_car_side">Машина в боковой проекции</string>
     <string name="btn_back">Кнопка назад</string>
     <string name="btn_start">Кнопка начала измерений</string>
-    <string name="tv_reminder">Закрепите телефон неподвижно!</string>
+    <string name="toast_reminder">Закрепите телефон неподвижно!</string>
+    <string name="correct_rice">Корректировка угла подъёма</string>
+    <string name="toast_edt_start">Положительное число и не более 100</string>
+    <string name="btn_update">Кнопка сброса дистанции</string>
+    <string name="tv_distance">Пройденная дистанция (км):\n</string>
+    <string name="tv_velocity">Скорость\n (км/ч):\n</string>
+    <string name="tv_rotation_frequency">Частота вращения колёс (об/мин):\n</string>
+    <string name="tv_angular_velocity">Угловая скорость вращения вала (км/ч):\n</string>
+    <string name="tv_braking_distance">Тормозной путь до полной остановки (м):\n</string>
+    <string name="tv_braking_time">Время торможения до полной остановки (сек):\n</string>
+    <string name="tv_acceleration">Ускорение\n (м/с^2):\n</string>
+    <string name="tv_pulse">Импульс\n(кг·м/с):\n</string>
 </resources>

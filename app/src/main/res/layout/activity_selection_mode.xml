@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/very_light_blue"
     android:orientation="vertical"
-    tools:context=".SelectionModeActivity">
+    tools:context=".view.SelectionModeActivity">
 
 
     <LinearLayout
@@ -41,28 +41,6 @@
             android:background="@drawable/shape_btn"
             android:text="@string/speed" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn3"
-            android:onClick="onBtnForce"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/shape_btn"
-            android:text="@string/force" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn4"
-            android:onClick="onBtnOther"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/shape_btn"
-            android:text="@string/other" />
-
     </LinearLayout>
 
     <TextView
@@ -70,7 +48,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textSize="21sp"
-        android:textColor="@color/orange"
+        android:textColor="@color/light_orange"
         android:text="@string/input_data"
         android:textStyle="bold"
         android:gravity="center"
@@ -93,6 +71,7 @@
             android:width="1dp"
             android:id="@+id/edt_mass"
             android:hint="@string/hint_edtmass"
+            android:textCursorDrawable="@null"
             android:backgroundTint="@color/light_orange"
             android:textColor="@color/light_orange"
             android:textColorHint="@color/light_orange"
@@ -105,6 +84,7 @@
             android:width="1dp"
             android:id="@+id/edt_rad"
             android:hint="@string/hint_edtrad"
+            android:textCursorDrawable="@null"
             android:backgroundTint="@color/light_orange"
             android:textColor="@color/light_orange"
             android:textColorHint="@color/light_orange"
@@ -113,5 +93,17 @@
             android:layout_weight="1"
             android:inputType="date" />
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        android:text="SAVE"
+        android:onClick="onClickSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_btn"
+        app:layout_constraintBottom_toTopOf="@+id/linear_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/light_orange"
-    tools:context=".StartActivity">
+    tools:context=".view.StartActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -24,6 +25,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
         android:background="@drawable/shape_btn"
         android:onClick="onBtnClick"
         android:text="@string/start_app"
@@ -33,20 +36,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.543" />
-
-    <EditText
-        android:id="@+id/person_name"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:autofillHints="username"
-        android:hint="@string/hint_edtname"
-        android:textColorHint="@color/light_blue"
-        android:textColor="@color/light_blue"
-        android:backgroundTint="@color/light_blue"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

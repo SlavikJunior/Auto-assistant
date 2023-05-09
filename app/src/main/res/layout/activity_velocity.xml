@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".view.VelocityActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_btn_velocity"
+            android:contentDescription="@string/btn_back"
+            android:onClick="btnBack"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/btn_back" />
+
+        <ImageButton
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_btn_velocity"
+            android:contentDescription="@string/btn_update"
+            android:onClick="btnUpdate"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/btn_update"/>
+
+    </LinearLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_pulse"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:textColor="@color/black"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/tv_braking_time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/tv_braking_distance"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_acceleration"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/tv_velocity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_traction_force"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/tv_angular_velocity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/tv_rotation_frequency"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:background="@drawable/border"/>
+
+    </TableRow>
+
+</TableLayout>
+

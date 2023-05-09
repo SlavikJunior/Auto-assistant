@@ -9,9 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#689CD2</color>
     <color name="very_light_blue">#3B9EBA</color>
-    <color name="light_violet">#998BFC</color>
     <color name="orange">#FF9900</color>
     <color name="light_orange">#FFC773</color>
+    <color name="light_violet">#998BFC</color>
     <color name="btn">#963FD5</color>
     <color name="press_btn">#42036F</color>
 </resources>
