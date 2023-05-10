@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.example.autoassistant.R;
 import com.example.autoassistant.model.LocInterfaceListener;
 import com.example.autoassistant.model.MyLocListener;
-import com.example.autoassistant.viewmodel.MyDbManager;
 
 public class VelocityActivity extends AppCompatActivity implements LocInterfaceListener {
 
@@ -38,9 +37,8 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
     private Sensor s;
     private SensorEventListener sv;
 
-    //private String mass, rad;
+    private String mass, rad;
     private float carMass, wheelRad;
-    private MyDbManager myDbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +46,12 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
         Window window = getWindow();
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setContentView(R.layout.activity_velocity);
-//        Bundle arguments = getIntent().getExtras();
-//        mass = arguments.get("mass").toString();
-//        rad = arguments.get("rad").toString();
-//        carMass = Float.parseFloat(mass);
-//        wheelRad = Float.parseFloat(rad);
+        Bundle arguments = getIntent().getExtras();
+        mass = arguments.get("mass").toString();
+        rad = arguments.get("rad").toString();
+        carMass = Float.parseFloat(mass);
+        wheelRad = Float.parseFloat(rad);
         init();
-        myDbManager = new MyDbManager(this);
-        myDbManager.getFromDb();
-        myDbManager.getFromDb();
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         s = sm.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         sv = new SensorEventListener() {
@@ -142,6 +137,8 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
         sm.unregisterListener(sv);
         locationManager.removeUpdates(myLocListener);
         Intent intent = new Intent(getApplicationContext(), SelectionModeActivity.class);
+        intent.putExtra("mass", carMass);
+        intent.putExtra("rad", wheelRad);
         startActivity(intent);
 
     }
@@ -150,7 +147,6 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
     protected void onResume() {
         super.onResume();
         sm.registerListener(sv, s, SensorManager.SENSOR_DELAY_GAME);
-        myDbManager.openDb();
     }
 
     @Override

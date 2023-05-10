@@ -33,4 +33,6 @@
     <string name="tv_braking_time">Время торможения до полной остановки (сек):\n</string>
     <string name="tv_acceleration">Ускорение\n (м/с^2):\n</string>
     <string name="tv_pulse">Импульс\n(кг·м/с):\n</string>
+    <string name="save_data">СОХРАНИТЬ</string>
+    <string name="update_data">ОБНОВИТЬ</string>
 </resources>
