@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/very_light_blue"
+    android:background="@color/light_violet"
     android:orientation="vertical"
     tools:context=".view.SelectionModeActivity">
 
@@ -13,35 +13,37 @@
         android:id="@+id/linear_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:layout_margin="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear"
-        app:layout_constraintVertical_bias="0.712">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn1"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn"
+            android:background="@drawable/shape_selection"
             android:onClick="onBtnRoll"
-            android:text="@string/roll" />
+            android:text="@string/roll"
+            android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn2"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn"
+            android:background="@drawable/shape_selection"
             android:onClick="onBtnSpeed"
-            android:text="@string/speed" />
+            android:text="@string/speed"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -50,11 +52,13 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textSize="21sp"
-        android:textColor="@color/light_orange"
+        android:background="@drawable/txt_border"
+        android:textColor="@color/gray"
+        android:padding="10dp"
         android:text="@string/input_data"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -64,19 +68,21 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_margin="15dp"
+        android:layout_margin="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view">
 
         <EditText
             android:width="1dp"
+            android:paddingStart="10dp"
+            android:layout_marginEnd="5dp"
             android:id="@+id/edt_mass"
             android:hint="@string/hint_edtmass"
             android:textCursorDrawable="@null"
-            android:backgroundTint="@color/light_orange"
-            android:textColor="@color/light_orange"
-            android:textColorHint="@color/light_orange"
+            android:background="@drawable/tv_border"
+            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -84,12 +90,14 @@
 
         <EditText
             android:width="1dp"
+            android:paddingStart="10dp"
+            android:layout_marginStart="5dp"
             android:id="@+id/edt_rad"
             android:hint="@string/hint_edtrad"
             android:textCursorDrawable="@null"
-            android:backgroundTint="@color/light_orange"
-            android:textColor="@color/light_orange"
-            android:textColorHint="@color/light_orange"
+            android:background="@drawable/tv_border"
+            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -97,9 +105,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="400dp"
-        android:layout_height="40dp"
-        android:layout_margin="15dp"
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="25dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,24 +118,26 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSave"
             android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn"
+            android:background="@drawable/shape_selection"
             android:onClick="onBtnSave"
-            android:text="@string/save_data" />
+            android:text="@string/save_data"
+            android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUpdate"
             android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn"
+            android:background="@drawable/shape_selection"
             android:onClick="onBtnUpdate"
-            android:text="@string/update_data" />
+            android:text="@string/update_data"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

@@ -11,6 +11,10 @@
     <color name="very_light_blue">#3B9EBA</color>
     <color name="orange">#FF9900</color>
     <color name="light_orange">#FFC773</color>
+    <color name="gray">#857DBD</color>
+    <color name="blue">#85B9FC</color>
+    <color name="pink">#f9bcdd</color>
+    <color name="dark_pink">#d5a4cf</color>
     <color name="light_violet">#998BFC</color>
     <color name="btn">#963FD5</color>
     <color name="press_btn">#42036F</color>

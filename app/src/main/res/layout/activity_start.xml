@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/light_orange"
+    android:background="@color/pink"
     tools:context=".view.StartActivity">
 
     <ImageView
@@ -27,9 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:background="@drawable/shape_btn"
+        android:background="@drawable/shape_btn_starting"
         android:onClick="onBtnClick"
         android:text="@string/start_app"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
