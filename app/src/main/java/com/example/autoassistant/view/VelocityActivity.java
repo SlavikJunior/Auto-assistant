@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,6 +16,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -45,6 +47,7 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
         super.onCreate(savedInstanceState);
         Window window = getWindow();
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_velocity);
         Bundle arguments = getIntent().getExtras();
         mass = arguments.get("mass").toString();
@@ -59,7 +62,8 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
             public void onSensorChanged(SensorEvent sensorEvent) {
                 float z = sensorEvent.values[2];
                 tv_acceleration.setText(getString(R.string.tv_acceleration) + String.format("%.1f", z));
-                tv_traction_force.setText("Сила тяги\n (кн):\n" + String.format("%.2f", z * carMass / 1000));
+                float traction_force = z * carMass / 1000;
+                tv_traction_force.setText(getString(R.string.tv_traction_force) + String.format("%.1f", traction_force));
             }
 
             @Override
@@ -86,6 +90,11 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
         myLocListener = new MyLocListener();
         myLocListener.setLocInterfaceListener(this);
         checkPermissions();
+        boolean enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (!enabled) {
+            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(intent);
+        }
 
     }
 
@@ -119,10 +128,10 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
 
            tv_distance.setText(getString(R.string.tv_distance) + String.format("%.3f", distance));
            tv_velocity.setText(getString(R.string.tv_velocity) + String.valueOf(Math.round(loc.getSpeed() * 3.6)));
-           tv_rotation_frequency.setText(getString(R.string.tv_rotation_frequency) + String.valueOf(Math.round(loc.getSpeed() / 2 * 3.141592 * wheelRad * 60)));
-           tv_angular_velocity.setText(getString(R.string.tv_angular_velocity) + String.valueOf(Math.round(loc.getSpeed() * 3.6 / wheelRad)));
-           tv_braking_distance.setText(getString(R.string.tv_braking_distance) + String.valueOf(Math.round(loc.getSpeed() * 1.15 + loc.getSpeed() * loc.getSpeed() / 2 * 0.7 * 9.80665)));
-           tv_braking_time.setText(getString(R.string.tv_braking_time) + String.valueOf(Math.round(loc.getSpeed() / 9.80665 * 0.7)));
+           tv_rotation_frequency.setText(getString(R.string.tv_rotation_frequency) + String.valueOf(Math.round(loc.getSpeed() * 60 / 6.2831 * wheelRad)));
+           tv_angular_velocity.setText(getString(R.string.tv_angular_velocity) + String.format("%.1f", loc.getSpeed() * 3.6 / wheelRad));
+           tv_braking_distance.setText(getString(R.string.tv_braking_distance) + String.valueOf(Math.round(loc.getSpeed() * 1.15 + loc.getSpeed() * loc.getSpeed() / 13.7292)));
+           tv_braking_time.setText(getString(R.string.tv_braking_time) + String.valueOf(Math.round(loc.getSpeed() / 6.8646)));
            tv_pulse.setText(getString(R.string.tv_pulse) + String.valueOf(Math.round(loc.getSpeed() * carMass)));
 
        btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -137,8 +146,6 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
         sm.unregisterListener(sv);
         locationManager.removeUpdates(myLocListener);
         Intent intent = new Intent(getApplicationContext(), SelectionModeActivity.class);
-        intent.putExtra("mass", carMass);
-        intent.putExtra("rad", wheelRad);
         startActivity(intent);
 
     }
@@ -146,13 +153,14 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
     @Override
     protected void onResume() {
         super.onResume();
-        sm.registerListener(sv, s, SensorManager.SENSOR_DELAY_GAME);
+        sm.registerListener(sv, s, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Bundle bundle = new Bundle();
+        bundle.putFloat("distance", distance);
         bundle.putFloat("mass", carMass);
         bundle.putFloat("rad", wheelRad);
     }
@@ -160,6 +168,7 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        distance = savedInstanceState.getFloat("distance");
         carMass = savedInstanceState.getFloat("mass");
         wheelRad = savedInstanceState.getFloat("rad");
     }

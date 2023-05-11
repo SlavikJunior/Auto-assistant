@@ -27,12 +27,16 @@ public class SelectionModeActivity extends AppCompatActivity {
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setContentView(R.layout.activity_selection_mode);
 
-        sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         edt_mass = findViewById(R.id.edt_mass);
         edt_rad = findViewById(R.id.edt_rad);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
+        car_mass = sharedPreferences.getFloat(mass_key, 0.0F);
+        edt_mass.setText(String.valueOf(car_mass));
+        wheel_rad = sharedPreferences.getFloat(rad_key, 0.0F);
+        edt_rad.setText(String.valueOf(wheel_rad));
     }
 
     public void onBtnRoll(View view) {
@@ -59,18 +63,12 @@ public class SelectionModeActivity extends AppCompatActivity {
             car_mass = Float.parseFloat(edt_mass.getText().toString());
             wheel_rad = Float.parseFloat(edt_rad.getText().toString());
         } catch (NumberFormatException numberFormatException) {
-            Toast.makeText(this, "А строки то пустые)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_forward, Toast.LENGTH_SHORT).show();
         }
-
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("mass_key", car_mass);
-        editor.putFloat("rad_key", wheel_rad);
+        editor.putFloat(mass_key, car_mass);
+        editor.putFloat(rad_key, wheel_rad);
         editor.apply();
-
-        String mass = String.valueOf(sharedPreferences.getFloat("mass_key", 0.0F));
-        edt_mass.setText(mass);
-        String rad = String.valueOf(sharedPreferences.getFloat("rad_key", 0.0F));
-        edt_rad.setText(rad);
     }
 
     public void onBtnUpdate(View view) {
