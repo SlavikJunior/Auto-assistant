@@ -17,5 +17,7 @@
     <color name="dark_pink">#d5a4cf</color>
     <color name="light_violet">#998BFC</color>
     <color name="btn">#963FD5</color>
+    <color name="light_btn">#BFA1D5</color>
     <color name="press_btn">#42036F</color>
+    <color name="light_press_btn">#614E70</color>
 </resources>

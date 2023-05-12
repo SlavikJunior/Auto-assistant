@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/gray"
     tools:context=".view.VelocityActivity">
 
     <LinearLayout
@@ -34,7 +34,6 @@
             android:layout_margin="5dp"
             android:background="@drawable/shape_btn_velocity"
             android:contentDescription="@string/btn_update"
-            android:onClick="btnUpdate"
             android:padding="3dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/btn_update"/>
