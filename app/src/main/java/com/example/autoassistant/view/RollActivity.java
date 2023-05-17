@@ -42,7 +42,7 @@ public class RollActivity extends AppCompatActivity {
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_roll);
-
+        Toast.makeText(this, R.string.toast_reminder, Toast.LENGTH_SHORT).show();
         edtStart = findViewById(R.id.edtStart);
         im_rice = findViewById(R.id.im_rice);
         im_roll = findViewById(R.id.im_roll);

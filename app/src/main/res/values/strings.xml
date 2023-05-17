@@ -28,12 +28,15 @@
     <string name="tv_distance">Пройденная дистанция (км):\n</string>
     <string name="tv_velocity">Скорость\n (км/ч):\n</string>
     <string name="tv_rotation_frequency">Частота вращения колёс (об/мин):\n</string>
-    <string name="tv_angular_velocity">Угловая скорость вращения вала (км/ч):\n</string>
+    <string name="tv_angular_velocity">Угловая скорость колеса (км/ч):\n</string>
     <string name="tv_braking_distance">Тормозной путь до полной остановки (м):\n</string>
     <string name="tv_braking_time">Время торможения до полной остановки (сек):\n</string>
     <string name="tv_acceleration">Ускорение\n (м/с^2):\n</string>
-    <string name="tv_pulse">Импульс\n(кг·м/с):\n</string>
+    <string name="tv_pulse">Импульс тела\n(т*км/ч):\n</string>
     <string name="save_data">СОХРАНИТЬ</string>
     <string name="update_data">ОБНОВИТЬ</string>
     <string name="tv_traction_force">Сила тяги\n (кн):\n</string>
+    <string name="negativeBtn">Назад</string>
+    <string name="positiveBtn">Таки да!</string>
+    <string name="dialogTitle">Сбросить счётчик: Вы уверены?</string>
 </resources>

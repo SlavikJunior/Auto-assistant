@@ -20,4 +20,5 @@
     <color name="light_btn">#BFA1D5</color>
     <color name="press_btn">#42036F</color>
     <color name="light_press_btn">#614E70</color>
+    <color name="roll_back">#DCBC8AB6</color>
 </resources>

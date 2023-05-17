@@ -1,12 +1,14 @@
 package com.example.autoassistant.view;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -42,13 +44,20 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
     private String mass, rad;
     private float carMass, wheelRad;
 
+//    private SharedPreferences sharedPreferences;
+//    private final String distanceKey = "key";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window = getWindow();
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        //setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_velocity);
+
+//        sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+//        distance = sharedPreferences.getFloat(distanceKey, 0.0F);
+//        tv_distance.setText(String.valueOf(distance));
+
         Bundle arguments = getIntent().getExtras();
         mass = arguments.get("mass").toString();
         rad = arguments.get("rad").toString();
@@ -68,7 +77,6 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
             }
         };
     }
@@ -132,19 +140,44 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
            tv_angular_velocity.setText(getString(R.string.tv_angular_velocity) + String.format("%.1f", loc.getSpeed() * 3.6 / wheelRad));
            tv_braking_distance.setText(getString(R.string.tv_braking_distance) + String.valueOf(Math.round(loc.getSpeed() * 1.15 + loc.getSpeed() * loc.getSpeed() / 13.7292)));
            tv_braking_time.setText(getString(R.string.tv_braking_time) + String.valueOf(Math.round(loc.getSpeed() / 6.8646)));
-           tv_pulse.setText(getString(R.string.tv_pulse) + String.valueOf(Math.round(loc.getSpeed() * carMass)));
+           tv_pulse.setText(getString(R.string.tv_pulse) + String.format("%.2f",loc.getSpeed() * carMass * 0.0036));
 
        btnUpdate.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               distance = 0;
+               openQuitDialog();
            }
        });
+    }
+
+    private void openQuitDialog() {
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(VelocityActivity.this);
+        quitDialog.setTitle(R.string.dialogTitle);
+
+        quitDialog.setPositiveButton(R.string.positiveBtn, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                distance = 0;
+            }
+        });
+
+        quitDialog.setNegativeButton(R.string.negativeBtn, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        quitDialog.show();
     }
 
     public void btnBack(View view) {
         sm.unregisterListener(sv);
         locationManager.removeUpdates(myLocListener);
+
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putFloat(distanceKey, distance);
+
         Intent intent = new Intent(getApplicationContext(), SelectionModeActivity.class);
         startActivity(intent);
 
@@ -158,11 +191,9 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle saveInstanceState ) {
-
         saveInstanceState.putFloat("distance", distance);
         saveInstanceState.putFloat("mass", carMass);
         saveInstanceState.putFloat("rad", wheelRad);
-
         super.onSaveInstanceState(saveInstanceState);
     }
 
