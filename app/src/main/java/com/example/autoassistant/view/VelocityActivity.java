@@ -157,12 +157,13 @@ public class VelocityActivity extends AppCompatActivity implements LocInterfaceL
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Bundle bundle = new Bundle();
-        bundle.putFloat("distance", distance);
-        bundle.putFloat("mass", carMass);
-        bundle.putFloat("rad", wheelRad);
+    protected void onSaveInstanceState(@NonNull Bundle saveInstanceState ) {
+
+        saveInstanceState.putFloat("distance", distance);
+        saveInstanceState.putFloat("mass", carMass);
+        saveInstanceState.putFloat("rad", wheelRad);
+
+        super.onSaveInstanceState(saveInstanceState);
     }
 
     @Override

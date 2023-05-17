@@ -25,6 +25,7 @@ public class SelectionModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Window window = getWindow();
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        //setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_selection_mode);
 
         sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
