@@ -27,6 +27,8 @@ public class SelectionModeActivity extends AppCompatActivity {
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setContentView(R.layout.activity_selection_mode);
 
+        Toast.makeText(this, R.string.toast_gps, Toast.LENGTH_SHORT).show();
+
         sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         edt_mass = findViewById(R.id.edt_mass);
         edt_rad = findViewById(R.id.edt_rad);

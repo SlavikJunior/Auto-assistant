@@ -39,4 +39,5 @@
     <string name="negativeBtn">Назад</string>
     <string name="positiveBtn">Таки да!</string>
     <string name="dialogTitle">Сбросить счётчик: Вы уверены?</string>
+    <string name="toast_gps">Не забудьте включить GPS на Вашем устройстве</string>
 </resources>
